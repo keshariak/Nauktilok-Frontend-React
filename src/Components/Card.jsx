@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export const Card = (props) => {
   // console.log("Carddddd",props)
@@ -28,7 +29,7 @@ export const Card = (props) => {
             </div>
 
             <div className=''>
-                <a href={`/student/internship/${props.data._id}`} onClick={clickHandler} className='text-blue-900 font-bold hover:underline'>Explore more </a>
+              <Link to={`/student/internship/${props.data._id}`}  onClick={clickHandler} className='text-blue-900 font-bold hover:underline'>Explore more </Link>
             </div>
         </div>
 

@@ -97,3 +97,18 @@
     color: #555555;
   }
   
+
+ html, body{
+  margin: 0;
+  padding: 0;
+ }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Webkit browsers */
+  }
+  
+  .custom-scrollbar {
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+  

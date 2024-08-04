@@ -5,10 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import { Link } from 'react-router-dom';
 
 
-
-export const LoginPage = () => {
- 
-
+export const EloginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -25,14 +22,14 @@ export const LoginPage = () => {
     // Perform login logic here
     console.log('Logging in with:', email, password);
     try {
-      const response = await axios_instance.post("user/student/signin", {
+      const response = await axios_instance.post("employee/signin", {
         email,password
       })
       console.log(response)
 
        if(response.data){
         
-        window.location.href ="/home"
+        window.location.href ="/employee/home"
 
        }
         
@@ -78,6 +75,8 @@ export const LoginPage = () => {
 
   return (
     <>
+
+    
     <div className='w-full h-[10vh] flex items-center border-b-2 bg-gray-100 justify-start  '>
       <div id="left" className='  flex items-center  font-bold pl-9'>INTERNSHALA</div>
  </div>
@@ -89,10 +88,10 @@ export const LoginPage = () => {
 
       <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-md">
         <div className="text-center mb-6">
-        {/* <h2 className="text-xl font-bold pb-4">   Student / <Link to={"/employee/login"} className='text-gray-400'>Employee</Link>    </h2> */}
-        <h2 className="text-3xl font-bold pb-4">  Student  <Link to={"/employee/login"} className='text-gray-300'>/ Employee</Link>   </h2>
+        <h2 className="text-3xl font-bold pb-4"> <Link to={"/auth/login"} className='text-gray-300'> Student / </Link>   Employee    </h2>
         <div id="line" className='w-full h-[1px] bg-slate-400'></div>
           <h2 className="text-2xl font-bold pt-3">Login to Your Account</h2>
+         
           <p className="text-gray-500">Access your account to explore opportunities</p>
         </div>
 
@@ -167,4 +166,4 @@ export const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default EloginPage;

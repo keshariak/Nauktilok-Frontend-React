@@ -1,7 +1,8 @@
 import React from 'react'
 import {  useNavigate, useParams } from 'react-router-dom'
 import { useUser } from '../contexts/userContexts'
-import { useInternship } from '../contexts/internshipContext'
+import { useJob } from '../contexts/jobContext'
+
 import { Navbar } from '../Components/Navbar'
 import axios_instance from '../utils/axios'
 import { toast, ToastContainer } from "react-toastify";
@@ -9,25 +10,27 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 
-export const InternshipPage = (props) => {
+
+export const JobPage = (props) => {
   const navigate=useNavigate()
 
   const {id} =useParams()
 
   const {user} = useUser()
-  const [internship] = useInternship()
+  const [job] = useJob()
+  // console.log(job)
 
-  // Find the internship with the matching ID
-  const internshipDetail = internship.find((data)=> data._id === id);
-  // console.log(internshipDetail)
+  // Find the job with the matching ID
+  const jobDetail = job.find((data)=> data._id === id);
+  // console.log(jobDetail)
 
-  if (!internshipDetail) {
+  if (!jobDetail) {
     return <div>Loading...</div>; 
   }
-  const skillArray = internshipDetail.skill.split(", ");
+  const skillArray = jobDetail.skill.split(", ");
   // console.log(skillArray)
 
-  //apply internship 
+  //apply job 
 
 
   const applyHandler=async (e)=>{
@@ -35,7 +38,7 @@ export const InternshipPage = (props) => {
     // console.log(e)
     try {
       const response = await axios_instance.post(
-        `user/student/apply/internship/${internshipDetail._id}`,
+        `user/student/apply/job/${jobDetail._id}`,
         {
           user,
         }
@@ -44,7 +47,7 @@ export const InternshipPage = (props) => {
   
       if (response.data) {
         // Show success toast
-        toast.success("Successfully applied for the internship!");
+        toast.success("Successfully applied for the job!");
   
         // Redirect to the home page after a short delay
         setTimeout(() => {
@@ -53,7 +56,7 @@ export const InternshipPage = (props) => {
       }
     } catch (error) {
       // Show error toast
-      toast.error("You are already applied in this internship.");
+      toast.error("You are already applied in this job.");
       console.error(error); // Log the error for debugging
     }
   };
@@ -62,11 +65,11 @@ export const InternshipPage = (props) => {
     <>
     <Navbar></Navbar>
 
-<div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-md ">
+<div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-md">
       {/* Header Section */}
      
 
-      {/* Main Internship Card */}
+      {/* Main job Card */}
       <div className="border border-gray-200 rounded-lg p-6 mb-8">
         <div className="flex justify-between items-center mb-4">
           <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
@@ -74,7 +77,7 @@ export const InternshipPage = (props) => {
           </span>
         </div>
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          {internshipDetail.profile}
+          {jobDetail.title}
         </h2>
         <p className="text-lg text-gray-700 mb-2">organizationname 
           {/* <span className="text-green-600 text-xs font-semibold">NGO</span> */}
@@ -84,35 +87,35 @@ export const InternshipPage = (props) => {
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div className="flex items-center">
             <span className="mr-2 text-gray-500">🏠</span>
-            <p className="text-gray-700">{internshipDetail.internshiptype}</p>
+            <p className="text-gray-700">{jobDetail.jobtype}</p>
           </div>
           <div className="flex items-center">
             <span className="mr-2 text-gray-500">📅</span>
-            <p className="text-gray-700">Start Date: {internshipDetail.from}</p>
+            <p className="text-gray-700">Start Date: {jobDetail.from}</p>
           </div>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <span className="mr-2 text-gray-500">🕒</span>
-            <p className="text-gray-700">Duration: {internshipDetail.duration}</p>
-          </div>
+            <p className="text-gray-700">Duration: {jobDetail.duration}</p>
+          </div> */}
           <div className="flex items-center">
             <span className="mr-2 text-gray-500">💰</span>
-            <p className="text-gray-700">Stipend: ₹{internshipDetail.stipend.amount}</p>
+            <p className="text-gray-700">Salary: ₹{jobDetail.salary}</p>
           </div>
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <span className="mr-2 text-gray-500">📆</span>
-            <p className="text-gray-700">Apply By: {internshipDetail.to}</p>
-          </div>
+            <p className="text-gray-700">Apply By: {jobDetail.to}</p>
+          </div> */}
           <div className="flex items-center">
             <span className="mr-2 text-gray-500">👥</span>
-            <p className="text-gray-700">{internshipDetail.students.length} applicants</p>
+            <p className="text-gray-700">{jobDetail.students.length} applicants</p>
           </div>
         </div>
 
         <h3 className="text-xl font-semibold text-gray-800 mb-2">
-          About the job/internship
+          About the job
         </h3>
         <p className="text-gray-700 mb-4">
-          Are you passionate about mental health and helping others in need? Join our team at Vandrevala Foundation as a 'Mental Health Helpline Counselors Intern'! As a counselor intern, you will have the opportunity to make a real difference in the lives of those struggling with mental health issues.
+          {jobDetail.description}
         </p>
 
         <hr className="my-4" />
@@ -145,8 +148,8 @@ export const InternshipPage = (props) => {
         {/* Who Can Apply */}
         <h3 className="text-xl font-semibold text-gray-800 mb-2">Who can apply</h3>
         <ul className="list-disc list-inside mb-6 text-gray-700">
-          <li>are available for the work from home job/internship</li>
-          <li>can start the work from home job/internship between 17th Jul'24 and 21st Aug'24</li>
+          <li>are available for the work from home job/job</li>
+          <li>can start the work from home job/job between 17th Jul'24 and 21st Aug'24</li>
           <li>are available for duration of 2 months</li>
           <li>have relevant skills and interests</li>
           <li>* Women wanting to start/restart their career can also apply.</li>
@@ -181,7 +184,7 @@ export const InternshipPage = (props) => {
 
         {/* Number of Openings */}
         <h3 className="text-xl font-semibold text-gray-800 mb-2">Number of openings</h3>
-        <p className="text-gray-700 mb-6">{internshipDetail.openings}</p>
+        <p className="text-gray-700 mb-6">{jobDetail.openings}</p>
 
         {/* About Company */}
         {/* <h3 className="text-xl font-semibold text-gray-800 mb-2">About Vandrevala Foundation</h3>
@@ -195,7 +198,7 @@ export const InternshipPage = (props) => {
           <p className="text-gray-500">Activity on Internshala</p>
           <div className="flex space-x-4">
            
-            <p className="text-gray-500">{internshipDetail.students.length}  candidates applied</p>
+            <p className="text-gray-500">{jobDetail.students.length}  candidates applied</p>
           </div>
         </div>
       </div>

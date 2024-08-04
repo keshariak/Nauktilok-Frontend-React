@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios_instance from '../utils/axios';
 import { GoogleLogin } from '@react-oauth/google'; // Import GoogleLogin
 import {jwtDecode} from "jwt-decode"; // Import jwtDecode
+import { Link } from 'react-router-dom';
+
 
 export const Register = () => {
   const [email, setEmail] = useState('');
@@ -117,10 +119,16 @@ export const Register = () => {
       <div className="flex flex-col justify-center items-center min-h-[90vh] bg-gray-100">
         <div className="max-w-lg w-full p-8 bg-white rounded-lg shadow-md">
           <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold">Sign-up and apply for free</h2>
+
+          <h2 className="text-3xl font-bold pb-4">  Student / <Link to={""} className='text-gray-300'>Employee</Link>   </h2>
+          <div id="line" className='w-full h-[1px] bg-slate-400'></div>
+
+
+
+            <h2 className="text-3xl font-bold pt-3">Sign-up and apply for free</h2>
             <p className="text-gray-500">1,50,000+ companies hiring on Internshala</p>
           </div>
-          <div className="flex items-center justify-center w-full p-2 mb-4 text-white bg-green-500 rounded hover:bg-green-600">
+          <div className="flex items-center justify-center w-full mb-4 text-white">
             <GoogleLogin
               onSuccess={(credentialResponse) => {
                 try {

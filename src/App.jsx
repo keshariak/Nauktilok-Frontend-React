@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { redirect, Route, Routes,Navigate } from "react-router-dom";
 import { LoginPage } from './pages/LoginPage';
 import { HomePage } from './pages/HomePage';
+
 import { Register } from './pages/Register';
 import { InternshipPage } from './pages/InternshipPage';
 import { JobPage } from './pages/JobPage';
@@ -21,6 +22,8 @@ import ProtectedRouteEmployee from './EmplyeeComponents/ProtectedRouteEmployee';
 import { CreateJob } from './employeePages/CreateJob';
 import { CreateInternship } from './employeePages/CreateInternship';
 import { Responses } from './employeePages/Responses';
+import { ResponsedStudentDetail } from './employeePages/ResponsedStudentDetail';
+
 
 
 
@@ -37,8 +40,8 @@ function App() {
      
       <Route path="/auth/login" element={<LoginPage></LoginPage>}/>
       <Route path="/" element={<Navigate to="/auth/login" />} />
-      {/* <Route path="/home" element={<HomePage></HomePage>}/>  */}
-      <Route path="/home" element={<ProtectedRoute element={HomePage} />} />
+      <Route path="/home" element={<HomePage></HomePage>}/> 
+      {/* <Route path="/home" element={<ProtectedRoute element={HomePage} />} /> */}
       <Route path="/student/internship/:id" element={<ProtectedRoute element={InternshipPage} />}/>
       <Route path="/student/job/:id" element={<ProtectedRoute element={JobPage} />}/> 
       <Route path="/student/alljobs" element={<ProtectedRoute element={AllJobs} />} />
@@ -61,8 +64,8 @@ function App() {
       <Route path="/create/job" element={<ProtectedRouteEmployee element={<CreateJob></CreateJob>} />}/>
       <Route path="/create/internship" element={<ProtectedRouteEmployee element={<CreateInternship></CreateInternship>} />}/>
       <Route path="/response/:id" element={<ProtectedRouteEmployee element={<Responses></Responses>} />}/>
+      <Route path="/response/studentdetails/:id" element={<ProtectedRouteEmployee element={<ResponsedStudentDetail></ResponsedStudentDetail>} />}/>
       
-
  
 
     </Routes>

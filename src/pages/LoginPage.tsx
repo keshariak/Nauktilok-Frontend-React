@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import axios_instance from '../utils/axios';  
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 export const LoginPage = () => {
+  const navigate= useNavigate()
  
 
   const [email, setEmail] = useState('');
@@ -32,8 +33,10 @@ export const LoginPage = () => {
 
        if(response.data){
         
-        window.location.href ="/home"
-
+        // window.location.href ="/home"
+        console.log(response.data)
+        navigate("/home")
+ 
        }
         
       } catch (error) {

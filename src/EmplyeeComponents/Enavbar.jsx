@@ -7,8 +7,8 @@ import { useEmployee } from '../contexts/employeeContexts'
 
 
 
-export const Enavbar = async() => {
-  const navigate =useNavigate()
+export const Enavbar = () => {
+  // const navigate =useNavigate()
     const {employee}= useEmployee()
    console.log("hey",employee)
   // const [internship, setinternship] = useInternship()
@@ -33,7 +33,7 @@ export const Enavbar = async() => {
   
 
 
- },{sidebarref})
+ },[sidebarref])
 
 
   const logoutHandler=async(e)=>{
@@ -78,20 +78,16 @@ export const Enavbar = async() => {
           </div> 
 
   <div>
-  <h1 className='font-bold text-lg '>Full Name</h1>
-  <h5  className='font-medium text-sm'>employee@gmail.com</h5>
+  <h1 className='font-bold text-lg '>{employee.firstname} {employee.lastname}</h1>
+  <h5  className='font-medium text-sm'>{employee.email}</h5>
 
   </div>
 </div>
 
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>home</h1></div>
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>home</h1></div>
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>home</h1></div>
 
-
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>My Apllications</h1></div>
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>home</h1></div>
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>Home</h1></div>
+<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"employee/home"}>Home</Link></h1></div>
+<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"employee/internships"}>Internships</Link></h1></div>
+<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"employee/jobs"}>Jobs</Link></h1></div>
 <div className='w-full h-12  flex items-center pl-3'>
    <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>  <button onClick={logoutHandler} >LogOut</button></h1>
    </div> </div>
@@ -105,8 +101,8 @@ export const Enavbar = async() => {
       </div>
 
       <div id="right" className='w-1/2  h-full flex items-center gap-9 justify-end pr-12'>
-      <Link to={""}  className='ml-3 md:block hidden hover:scale-[1.03] transform transition duration-300 ease-in-out'>Internships</Link>
-      <Link to={""}  className='ml-3 md:block hidden hover:scale-[1.03] transform transition duration-300 ease-in-out'>Jobs</Link>
+      <Link to={"employee/internships"}  className='ml-3 md:block hidden hover:scale-[1.03] transform transition duration-300 ease-in-out'>Internships</Link>
+      <Link to={"employee/jobs"}  className='ml-3 md:block hidden hover:scale-[1.03] transform transition duration-300 ease-in-out'>Jobs</Link>
 
 
 
@@ -130,13 +126,12 @@ export const Enavbar = async() => {
           <div className='h-[45vh] md:w-[17vw] w-[70vw] bg-white shadow-2xl absolute right-0 top-[10vh]'>
 
           <div className='w-full h-[25%] p-3 pl-4 border-b-2 border-gray-300 text-gray-700'>
-            <h1 className='font-bold'>Full Name</h1>
-            <h5>employee@gmail.com</h5>
+            <h1 className='font-bold'>{employee.firstname} {employee.lastname}</h1>
+            <h5>{employee.email} </h5>
           </div>
           <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"/employee/home"}>Home</Link></h1></div>
           <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>My Apllications</h1></div>
-          <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>home</h1></div>
-          <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>Home</h1></div>
+          
           <div className='w-full h-12  flex items-center pl-3'>
              <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>  <button onClick={logoutHandler} >LogOut</button></h1>
              </div>

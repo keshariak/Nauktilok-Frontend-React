@@ -72,7 +72,7 @@ export const LoginPage = () => {
         // localStorage.setItem("token", response.data.token);
 
         // Redirect to the home page
-        window.location.to = "/home";
+        window.location.href = "/home";
       }
     } catch (error) {
       console.error('Error logging in with Google:', error);

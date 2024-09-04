@@ -41,7 +41,7 @@ const AllStudentsProvider = ({ children }) => {
 //   }, []);
 
   return (
-    <LinkllStudentsContexts.Provider value={{ allStudents, setAllStudents, loading }}>
+    <AllStudentsContexts.Provider value={{ allStudents, setAllStudents, loading }}>
       {children}
     </AllStudentsContexts.Provider>
   );

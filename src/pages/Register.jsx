@@ -40,7 +40,7 @@ export const Register = () => {
       });
 
       // Redirect to the home page after successful registration
-      window.location.to = "/home";
+      window.location.href = "/home";
 
       console.log(response);
     } catch (error) {

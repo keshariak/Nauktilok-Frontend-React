@@ -1,7 +1,7 @@
 import axios from "axios"; 
 
 const axios_instance = axios.create({
-  baseURL : 'http://localhost:8080',
+  baseURL : import.meta.env.BACKEND_URL,
   withCredentials:true,
  
   // .. other options

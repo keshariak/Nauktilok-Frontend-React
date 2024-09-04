@@ -2,9 +2,10 @@ import { useState } from 'react'
 
 
 
-import { redirect, Route, Routes,Navigate } from "react-router-dom";
+import { redirect, Route, Routes,Navigate, Link } from "react-router-dom";
 import { LoginPage } from './pages/LoginPage';
 import { HomePage } from './pages/HomePage';
+
 
 import { Register } from './pages/Register';
 import { InternshipPage } from './pages/InternshipPage';

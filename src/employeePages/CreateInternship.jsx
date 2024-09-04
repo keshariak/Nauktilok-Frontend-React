@@ -70,7 +70,7 @@ export const CreateInternship = () => {
       });
 
 
-      window.location.href= "/employee/home"
+      window.location.to= "/employee/home"
     } catch (error) {
       console.error('There was an error creating the internship!', error);
       alert('Failed to create the internship. Please try again.');

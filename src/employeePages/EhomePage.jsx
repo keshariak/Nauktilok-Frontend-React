@@ -21,7 +21,7 @@ export const EhomePage = () => {
     
            if(response.data){
             // navigate("/employee/signin")
-            window.location.href="/employee/login"
+            window.location.to="/employee/login"
     
            }
             

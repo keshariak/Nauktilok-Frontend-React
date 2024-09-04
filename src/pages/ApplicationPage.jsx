@@ -49,7 +49,7 @@ export const ApplicationPage = () => {
                         <td className="px-4 py-3 text-gray-800">#{internship.stipend.status                        }</td>
                         <td className="px-4 py-3 text-gray-800 font-semibold flex items-center">
                           {internship.profile}
-                          <a href={`/student/internship/${internship._id}`} className="ml-2 text-blue-600" aria-label="Open link">
+                          <Link to={`/student/internship/${internship._id}`} className="ml-2 text-blue-600" aria-label="Open link">
                             <svg
                               className="w-5 h-5 transform rotate-45"
                               fill="none"
@@ -59,7 +59,7 @@ export const ApplicationPage = () => {
                             >
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12l5-5m0 0l5 5m-5-5v12" />
                             </svg>
-                          </a>
+                          </Link>
                         </td>
                         <td className="px-4 py-3 text-gray-800">{internship.internshiptype}</td>
                         <td className="px-4 py-3 text-gray-800">{internship.students.length}</td>
@@ -94,7 +94,7 @@ export const ApplicationPage = () => {
                         <td className="px-4 py-3 text-gray-800">#{job.from}</td>
                         <td className="px-4 py-3 text-gray-800 font-semibold flex items-center">
                           {job.title}
-                          <a href={`/student/job/${job._id}`} className="ml-2 text-blue-600" aria-label="Open link">
+                          <Link to={`/student/job/${job._id}`} className="ml-2 text-blue-600" aria-label="Open link">
                             <svg
                               className="w-5 h-5 transform rotate-45"
                               fill="none"
@@ -104,7 +104,7 @@ export const ApplicationPage = () => {
                             >
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12l5-5m0 0l5 5m-5-5v12" />
                             </svg>
-                          </a>
+                          </Link>
                         </td>
                         <td className="px-4 py-3 text-gray-800">{job.jobtype}</td>
                         <td className="px-4 py-3 text-gray-800">{job.students.length}</td>
@@ -151,7 +151,7 @@ export const ApplicationPage = () => {
                   <td className="px-4 py-3 text-gray-800">Tech Corp</td>
                   <td className="px-4 py-3 text-gray-800 flex items-center">
                     Backend Developer
-                    <a href="#" className="ml-2 text-blue-600" aria-label="Open link">
+                    <Link to="#" className="ml-2 text-blue-600" aria-label="Open link">
                       <svg
                         className="w-4 h-4"
                         fill="none"
@@ -161,7 +161,7 @@ export const ApplicationPage = () => {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                       </svg>
-                    </a>
+                    </Link>
                   </td>
                   <td className="px-4 py-3 text-gray-800">5 Aug' 24</td>
                   <td className="px-4 py-3 text-gray-800">5123</td>
@@ -190,7 +190,7 @@ export const ApplicationPage = () => {
                   <td className="px-4 py-3 text-gray-800">InnoTech</td>
                   <td className="px-4 py-3 text-gray-800 flex items-center">
                     Data Analyst
-                    <a href="#" className="ml-2 text-blue-600" aria-label="Open link">
+                    <Link to="#" className="ml-2 text-blue-600" aria-label="Open link">
                       <svg
                         className="w-4 h-4"
                         fill="none"
@@ -200,7 +200,7 @@ export const ApplicationPage = () => {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                       </svg>
-                    </a>
+                    </Link>
                   </td>
                   <td className="px-4 py-3 text-gray-800">4 Aug' 24</td>
                   <td className="px-4 py-3 text-gray-800">2345</td>
@@ -233,8 +233,8 @@ export const ApplicationPage = () => {
             <h1 className='text-xl mx-auto font-semibold text-gray-800'>{student.firstname} , You don't have any applications yet.</h1>
             <p className='text-sm mx-auto text-gray-500'>Start applying to boost your career with top hiring companies on Naukrilok</p>
             <div className="flex justify-center space-x-4 mt-10 w-full">
-            <a href="/student/alljobs" className="bg-cyan-800 text-white  md:px-6 py-2 px-4 text-sm rounded-md hover:bg-cyan-700 transition duration-300 ease-in-out">Browse Jobs</a>
-            <a href="/student/allinternships" className="bg-emerald-700 text-white text-sm  md:px-6 py-2 px-4 rounded-md hover:bg-emerald-600 transition duration-300 ease-in-out">Explore Internships</a>
+            <Link to="/student/alljobs" className="bg-cyan-800 text-white  md:px-6 py-2 px-4 text-sm rounded-md hover:bg-cyan-700 transition duration-300 ease-in-out">Browse Jobs</Link>
+            <Link to="/student/allinternships" className="bg-emerald-700 text-white text-sm  md:px-6 py-2 px-4 rounded-md hover:bg-emerald-600 transition duration-300 ease-in-out">Explore Internships</Link>
           </div>
             </div>
         )

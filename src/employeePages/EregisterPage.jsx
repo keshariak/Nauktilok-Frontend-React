@@ -40,7 +40,7 @@ export const EregisterPage = () => {
       });
 
       // Redirect to the home page after successful registration
-      window.location.href = "/employee/home/employee/base";
+      window.location.to = "/employee/home/employee/base";
 
       console.log(response);
     } catch (error) {
@@ -102,7 +102,7 @@ export const EregisterPage = () => {
       });
 
       // Redirect to the home page after setting the password
-      window.location.href = "/home";
+      window.location.to = "/home";
 
       console.log('Password Set Response:', response);
     } catch (error) {
@@ -250,7 +250,7 @@ export const EregisterPage = () => {
               </div>
 
               <p className="text-xs text-gray-500">
-                By signing up, you agree to our <a href="#" className="text-blue-600 hover:underline">Terms and Conditions</a>.
+                By signing up, you agree to our <Link to="#" className="text-blue-600 hover:underline">Terms and Conditions</Link>.
               </p>
               <button
                 type="submit"
@@ -296,7 +296,9 @@ export const EregisterPage = () => {
           )}
 
           <p className="mt-6 text-sm text-center text-gray-500">
-            Already registered? <a href="/auth/login" className="text-blue-600 hover:underline">Login</a>
+            Already registered?
+             {/* <Link to="/auth/login" className="text-blue-600 hover:underline">Login</Link> */}
+             <Link  className="text-blue-600 hover:underline" to={"/auth/login"}>Login</Link>
           </p>
         </div>
       </div>

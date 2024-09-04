@@ -31,7 +31,7 @@ export const EloginPage = () => {
 
        if(response.data){
         
-        window.location.href ="/employee/home/employee/base"
+        window.location.to ="/employee/home/employee/base"
 
        }
         
@@ -67,7 +67,7 @@ export const EloginPage = () => {
         // localStorage.setItem("token", response.data.token);
 
         // Redirect to the home page
-        window.location.href = "/employee/home/employee/base";
+        window.location.to = "/employee/home/employee/base";
       }
     } catch (error) {
       console.error('Error logging in with Google:', error);
@@ -164,7 +164,8 @@ export const EloginPage = () => {
           </button>
         </form>
         <p className="mt-6 text-sm text-center text-gray-500">
-          New to the site? <a href="/auth/register" className="text-blue-600 hover:underline">Register here</a>
+          {/* New to the site? <Link to="/auth/register" className="text-blue-600 hover:underline">Register here</Link> */}
+          <Link className="text-blue-600 hover:underline" to={"/auth/register"}>Register here</Link>
         </p>
       </div>
     </div>

@@ -52,8 +52,8 @@ export const Home = () => {
             Explore thousands of opportunities and take the next step in your career.
           </p>
           <div className="flex justify-center space-x-4  w-full">
-            <a href="/student/alljobs" className="bg-cyan-800 text-white  md:px-6 py-2 px-4 text-sm rounded-md hover:bg-cyan-700 transition duration-300 ease-in-out">Browse Jobs</a>
-            <a href="/student/allinternships" className="bg-emerald-700 text-white text-sm  md:px-6 py-2 px-4 rounded-md hover:bg-emerald-600 transition duration-300 ease-in-out">Explore Internships</a>
+            <Link to="/student/alljobs" className="bg-cyan-800 text-white  md:px-6 py-2 px-4 text-sm rounded-md hover:bg-cyan-700 transition duration-300 ease-in-out">Browse Jobs</Link>
+            <Link to="/student/allinternships" className="bg-emerald-700 text-white text-sm  md:px-6 py-2 px-4 rounded-md hover:bg-emerald-600 transition duration-300 ease-in-out">Explore Internships</Link>
           </div>
         </section>
 

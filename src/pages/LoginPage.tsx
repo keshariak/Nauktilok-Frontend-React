@@ -34,7 +34,7 @@ export const LoginPage = () => {
 
        if(response.data){
         
-        // window.location.href ="/home"
+        // window.location.to ="/home"
         console.log(response.data)
         navigate("/home")
  
@@ -72,7 +72,7 @@ export const LoginPage = () => {
         // localStorage.setItem("token", response.data.token);
 
         // Redirect to the home page
-        window.location.href = "/home";
+        window.location.to = "/home";
       }
     } catch (error) {
       console.error('Error logging in with Google:', error);
@@ -167,7 +167,9 @@ export const LoginPage = () => {
           </button>
         </form>
         <p className="mt-6 text-sm text-center text-gray-500">
-          New to the site? <a href="/auth/register" className="text-blue-600 hover:underline">Register here</a>
+          New to the site? 
+          {/* <Link to="/auth/register" className="text-blue-600 hover:underline">Register here</Link> */}
+          <Link  className="text-blue-600 hover:underline" to={"/auth/register"}>Register here</Link>
         </p>
       </div>
     </div>

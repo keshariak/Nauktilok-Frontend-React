@@ -98,29 +98,29 @@ function App() {
             <h3 className="text-lg font-semibold text-white mb-3">Quick Links</h3>
             <ul>
               <li className="mb-2">
-                <a href="#home" className="hover:text-white transition">
+                <Link to="#home" className="hover:text-white transition">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#internships" className="hover:text-white transition">
+                <Link to="#internships" className="hover:text-white transition">
                   Internships
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#jobs" className="hover:text-white transition">
+                <Link to="#jobs" className="hover:text-white transition">
                   Jobs
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a href="#contact" className="hover:text-white transition">
+                <Link to="#contact" className="hover:text-white transition">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition">
+                <Link to="#about" className="hover:text-white transition">
                   About Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div> */}
@@ -131,16 +131,17 @@ function App() {
             <ul>
               <li className="mb-2">
                 <span className="block">Email: </span>
-                <a href="mailto:info@internshala.com" className="hover:text-white transition">
+                <Link to="mailto:info@internshala.com" className="hover:text-white transition">
                 naukrilok@gmail.com
-                </a>
+                </Link>
+                
               </li>
               <li className="mb-2">
                 <span className="block">Phone: </span>
-                <a href="tel:+123456789" className="hover:text-white transition">
+                <Link to="tel:+123456789" className="hover:text-white transition">
                   
                   Baat krke kya krega?
-                </a>
+                </Link>
               </li>
               <li>
                 <span className="block">Address: </span>
@@ -152,34 +153,34 @@ function App() {
 
         {/* Social Media Section */}
         <div className="mt-8 flex justify-center space-x-6">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <img
               src="https://img.icons8.com/fluent/30/000000/facebook-new.png"
               alt="Facebook"
               className="hover:opacity-75 transition"
             />
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          </Link>
+          <Link to="https://twitter.com" target="_blank" rel="noopener noreferrer">
             <img
               src="https://img.icons8.com/fluent/30/000000/twitter.png"
               alt="Twitter"
               className="hover:opacity-75 transition"
             />
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+          </Link>
+          <Link to="https://linkedin.com" target="_blank" rel="noopener noreferrer">
             <img
               src="https://img.icons8.com/fluent/30/000000/linkedin.png"
               alt="LinkedIn"
               className="hover:opacity-75 transition"
             />
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          </Link>
+          <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer">
             <img
               src="https://img.icons8.com/fluent/30/000000/instagram-new.png"
               alt="Instagram"
               className="hover:opacity-75 transition"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Copyright Section */}

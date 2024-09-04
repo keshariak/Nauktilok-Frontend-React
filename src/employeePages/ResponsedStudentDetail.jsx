@@ -47,7 +47,7 @@ export const ResponsedStudentDetail = () => {
       
       
 
-      <section className="mb-6">
+      {/* <section className="mb-6">
         <h2 className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">
           Responsibilities 
         </h2>
@@ -59,7 +59,7 @@ export const ResponsedStudentDetail = () => {
           </p>
         ))}
         </ul>
-      </section>
+      </section> */}
 
   
 
@@ -70,7 +70,7 @@ export const ResponsedStudentDetail = () => {
         <ul className="list-disc list-inside flex flex-wrap gap-2">
         {currentStudent.resume.skills.map((element, index) => (
           <p key={index} className="text-gray-800 bg-gray-200 rounded p-2 m-1">
-            {element}
+            {element.skill}
           </p>
         ))}
         </ul>
@@ -79,13 +79,13 @@ export const ResponsedStudentDetail = () => {
 
       <section>
         <h2 className="text-2xl font-semibold border-b-2 border-gray-300 pb-2 mb-4">
-          Accomplishments  
+          Responsibilities  
         </h2>
         <ul className="list-disc list-inside">
-        {currentStudent.resume.accomplishments.map((element, index) => (
+        {currentStudent.resume.responsibilities.map((element, index) => (
           <p key={index} className="text-gray-800">
             
-            <li>{element}</li>
+            {element.responsibility}
           </p>
         ))}
         </ul>

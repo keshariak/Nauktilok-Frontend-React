@@ -28,7 +28,7 @@ export const AllInternships = () => {
 
     </div>
 
-    <div id="main" className=' md:w-2/3 w-full min-h-screen mx-auto flex mt-6 '>
+    <div id="main" className=' md:w-2/3 w-full min-h-screen mx-auto flex mt-6  '>
        <div id="left" className=' w-1/3 h-screen md:block hidden '>
 
 
@@ -74,7 +74,7 @@ export const AllInternships = () => {
               </div>
 
        </div>
-       <div id="right" className=' md:w-2/3 w-full h-screen  flex items-center flex-col'>
+       <div id="right" className=' md:w-2/3 w-full h-screen  flex items-center flex-col '>
        <h1 className=' font-bold p-2 md:text-lg text-md '>{Internship.length} internships matching your preferences</h1>
        <div id="internships" className='w-full h-full overflow-scroll custom-scrollbar'>
 

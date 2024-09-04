@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import axios_instance from '../utils/axios';
+import { Enavbar } from '../EmplyeeComponents/Enavbar';
 
 
 export const CreateInternship = () => {
@@ -77,7 +78,10 @@ export const CreateInternship = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
+    <>
+    <Enavbar></Enavbar>
+
+<div className="max-w-3xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
       <h2 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Create an Internship</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -254,6 +258,8 @@ export const CreateInternship = () => {
         </button>
       </form>
     </div>
+    </>
+    
   );
 };
 

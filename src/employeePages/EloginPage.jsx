@@ -4,6 +4,8 @@ import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import { Link } from 'react-router-dom';
 
+import logo from '../assets/image.png'
+
 
 export const EloginPage = () => {
   const [email, setEmail] = useState('');
@@ -29,7 +31,7 @@ export const EloginPage = () => {
 
        if(response.data){
         
-        window.location.href ="/employee/home"
+        window.location.href ="/employee/home/employee/base"
 
        }
         
@@ -65,7 +67,7 @@ export const EloginPage = () => {
         // localStorage.setItem("token", response.data.token);
 
         // Redirect to the home page
-        window.location.href = "/home";
+        window.location.href = "/employee/home/employee/base";
       }
     } catch (error) {
       console.error('Error logging in with Google:', error);
@@ -78,7 +80,12 @@ export const EloginPage = () => {
 
     
     <div className='w-full h-[10vh] flex items-center border-b-2 bg-gray-100 justify-start  '>
-      <div id="left" className='  flex items-center  font-bold pl-9'>INTERNSHALA</div>
+      <div id="left" className='  flex items-center  font-bold pl-9'>
+      <div className='bg-slate-200 md:w-[7.4rem] md:h-10 w-[6rem] h-8 '> 
+      <img className='w-full h-full object-cover' src={logo} alt="NAUKRILOK" />
+
+      </div>
+      </div>
  </div>
 
 

@@ -63,6 +63,8 @@ const Einternships = () => {
               <div className="div w-[10%] h-full flex items-center pl-4"></div>
             </div>
             {filteredInternships.map((elem, index) => (
+
+              <Link to={`/internship/response/${elem._id}`}>
               <div
                 key={elem.id} // Ensure each element has a unique key
                 id="JobCard"
@@ -87,6 +89,7 @@ const Einternships = () => {
                   delete
                 </div>
               </div>
+              </Link>
             ))}
           </>
         ) : (

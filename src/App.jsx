@@ -23,7 +23,13 @@ import { CreateJob } from './employeePages/CreateJob';
 import { CreateInternship } from './employeePages/CreateInternship';
 import { Responses } from './employeePages/Responses';
 import { ResponsedStudentDetail } from './employeePages/ResponsedStudentDetail';
-
+import { EregisterPage } from './employeePages/EregisterPage';
+import { AboutusPage } from './pages/AboutusPage';
+import { ContactusPage } from './pages/ContactusPage';
+import { ApplicationPage } from './pages/ApplicationPage';
+import { ResponsesInternship } from './employeePages/ResponseInternship';
+import { EaboutusPage } from './employeePages/EaboutusPage';
+import { EcontactusPage } from './employeePages/EcontactusPage';
 
 
 
@@ -40,8 +46,12 @@ function App() {
      
       <Route path="/auth/login" element={<LoginPage></LoginPage>}/>
       <Route path="/" element={<Navigate to="/auth/login" />} />
-      <Route path="/home" element={<HomePage></HomePage>}/> 
-      {/* <Route path="/home" element={<ProtectedRoute element={HomePage} />} /> */}
+      {/* <Route path="/home" element={<HomePage></HomePage>}/>  */}
+      <Route path="/home" element={<ProtectedRoute element={HomePage} />} />
+      <Route path="/student/applications" element={<ProtectedRoute element={ApplicationPage} />} />
+      <Route path="/aboutus" element={<ProtectedRoute element={AboutusPage} />} />
+      <Route path="/contactus" element={<ProtectedRoute element={ContactusPage} />} />
+      
       <Route path="/student/internship/:id" element={<ProtectedRoute element={InternshipPage} />}/>
       <Route path="/student/job/:id" element={<ProtectedRoute element={JobPage} />}/> 
       <Route path="/student/alljobs" element={<ProtectedRoute element={AllJobs} />} />
@@ -49,40 +59,41 @@ function App() {
       <Route path="/student/resume" element={<ProtectedRoute element={Resume} />} />
       <Route path="/auth/register" element={<Register></Register>}/>
       {/* employee Routes */}
-      
-      
+  
       <Route  />
+
       <Route path="/employee/home" element={<ProtectedRouteEmployee element={<EhomePage></EhomePage>} />}>
          <Route path="employee/base" element={<Ehome></Ehome>}/>
          <Route path="employee/jobs" element={<Ejobs></Ejobs>}/>
          <Route path="employee/internships" element={<Einternships></Einternships>}/>
-       
-        
-
       </Route>
+
       <Route path="/employee/login" element={<EloginPage></EloginPage>}/>
+      <Route path="/employee/signup" element={<EregisterPage></EregisterPage>}/>
+      
       <Route path="/create/job" element={<ProtectedRouteEmployee element={<CreateJob></CreateJob>} />}/>
       <Route path="/create/internship" element={<ProtectedRouteEmployee element={<CreateInternship></CreateInternship>} />}/>
-      <Route path="/response/:id" element={<ProtectedRouteEmployee element={<Responses></Responses>} />}/>
+      <Route path="/job/response/:id" element={<ProtectedRouteEmployee element={<Responses></Responses>} />}/>
+      <Route path="/internship/response/:id" element={<ProtectedRouteEmployee element={<ResponsesInternship></ResponsesInternship>} />}/>
       <Route path="/response/studentdetails/:id" element={<ProtectedRouteEmployee element={<ResponsedStudentDetail></ResponsedStudentDetail>} />}/>
-      
+      <Route path="/employee/aboutus" element={<EaboutusPage></EaboutusPage>}/>
+      <Route path="/employee/contactus" element={<EcontactusPage></EcontactusPage>}/>
  
 
     </Routes>
 
-    
-    <footer className="bg-gray-800 text-gray-300 py-10">
+    <footer className="bg-gray-800 text-gray-300 py-10 m-0  ">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex flex-wrap justify-between">
           {/* Logo and About Section */}
           <div className="w-full lg:w-1/3 mb-6 lg:mb-0">
-            <h2 className="text-xl font-bold text-white mb-3">Internshala</h2>
+            <h2 className="text-xl font-bold text-white mb-3">NaukriLok</h2>
             <p className="text-sm">
-              Internshala connects students with top internships to gain valuable real-world experience and career growth.
+            Naukrilok connects students with top internships to gain valuable real-world experience and career growth.
             </p>
           </div>
 
-          {/* Quick Links Section */}
+          {/* Quick Links Section
           <div className="w-full lg:w-1/3 mb-6 lg:mb-0">
             <h3 className="text-lg font-semibold text-white mb-3">Quick Links</h3>
             <ul>
@@ -112,7 +123,7 @@ function App() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Contact Information Section */}
           <div className="w-full lg:w-1/3">
@@ -121,18 +132,19 @@ function App() {
               <li className="mb-2">
                 <span className="block">Email: </span>
                 <a href="mailto:info@internshala.com" className="hover:text-white transition">
-                  info@internshala.com
+                naukrilok@gmail.com
                 </a>
               </li>
               <li className="mb-2">
                 <span className="block">Phone: </span>
                 <a href="tel:+123456789" className="hover:text-white transition">
-                  +1 234 567 89
+                  
+                  Baat krke kya krega?
                 </a>
               </li>
               <li>
                 <span className="block">Address: </span>
-                123 Internshala Street, City, Country
+                Funding dega kya?
               </li>
             </ul>
           </div>
@@ -172,13 +184,11 @@ function App() {
 
         {/* Copyright Section */}
         <div className="mt-6 text-center text-sm">
-          <p>© {new Date().getFullYear()} Internshala. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Naukrilok. All rights reserved.</p>
         </div>
       </div>
     </footer>
-  
-   
-  
+    
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import axios_instance from '../utils/axios';
+import { Enavbar } from '../EmplyeeComponents/Enavbar';
 
 
 export  const CreateJob = () => {
@@ -71,6 +72,8 @@ export  const CreateJob = () => {
   };
 
   return (
+    <>
+    <Enavbar></Enavbar>
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
       <h2 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Create a Job</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -216,6 +219,8 @@ export  const CreateJob = () => {
         </button>
       </form>
     </div>
+    </>
+    
   );
 };
 

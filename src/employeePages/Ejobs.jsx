@@ -21,7 +21,7 @@ export const Ejobs = () => {
       }, [alljob, employee]); 
     // console.log("filteredJobs filteredJobs filteredJobs",filteredJobs)
   return (
-    <div>
+    <div className=''>
         <div id="top" className='w-full h-[10vh]  '>
             <div className='w-full h-full flex justify-center items-center '>
               <button className='p-2 rounded bg-blue-300 hover:bg-blue-500 transition-all' >
@@ -57,7 +57,7 @@ export const Ejobs = () => {
 {filteredJobs.map((elem,index)=>(
     
 
-      <Link to={`/response/${elem._id}`}>
+      <Link to={`/job/response/${elem._id}`}>
       <div id='JobCard' className='bg-white rounded-xl w-[95%] mb-3 h-14 flex mx-auto hover:scale-[1.01] transform transition duration-300 ease-in-out'>
       <div className='div w-[10%] h-full  flex items-center pl-4'> #{index+1}</div>
       <div className='div w-[30%] h-full font-semibold flex items-center pl-4'> {elem.title}</div>

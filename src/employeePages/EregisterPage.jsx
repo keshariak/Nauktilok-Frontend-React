@@ -5,12 +5,12 @@ import {jwtDecode} from "jwt-decode"; // Import jwtDecode
 import { Link } from 'react-router-dom';
 import logo from "../assets/image.png";
 
-export const Register = () => {
+export const EregisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstname, setFirstName] = useState('');
   const [lastname, setLastName] = useState('');
-  const [city, setCity] = useState('');
+  const [organizationname, setorganizationname] = useState('');
   const [contact, setContact] = useState('');
   const [error, setError] = useState('');
   const [showPasswordSetup, setShowPasswordSetup] = useState(false); // New state for password setup
@@ -21,7 +21,7 @@ export const Register = () => {
     e.preventDefault();
 
     // Basic validation
-    if (!email || !password || !firstname || !lastname || !city || !contact) {
+    if (!email || !password || !firstname || !lastname || !organizationname || !contact) {
       setError('Please fill out all fields.');
       return;
     }
@@ -30,17 +30,17 @@ export const Register = () => {
     console.log('Registering with:', email, password, firstname, lastname);
 
     try {
-      const response = await axios_instance.post("user/student/signup", {
+      const response = await axios_instance.post("employee/signup", {
         email,
         password,
         firstname,
         lastname,
-        city,
+        organizationname,
         contact
       });
 
       // Redirect to the home page after successful registration
-      window.location.href = "/home";
+      window.location.href = "/employee/home/employee/base";
 
       console.log(response);
     } catch (error) {
@@ -61,7 +61,7 @@ export const Register = () => {
     console.log(email)
     try {
       // Send the user data to the backend for registration
-      const response = await axios_instance.post("user/student/google/signup", userData);
+      const response = await axios_instance.post("employee/google/signup", userData);
 
       console.log('Google Sign-Up Response:', response);
 
@@ -96,7 +96,7 @@ export const Register = () => {
 
     try {
       // Assuming you have an endpoint to set/update password for the user
-      const response = await axios_instance.post("user/student/set-password", {
+      const response = await axios_instance.post("employee/employee/set-password", {
       email: email, // Use email to identify the user
         password: newPassword
       });
@@ -125,7 +125,7 @@ export const Register = () => {
         <div className="max-w-lg w-full p-8 bg-white rounded-lg shadow-md">
           <div className="text-center mb-6">
 
-          <h2 className="text-3xl font-bold pb-4">  Student / <Link to={"/employee/signup"} className='text-gray-300'>Employee</Link>   </h2>
+          <h2 className="text-3xl font-bold pb-4">   <Link to={"/auth/register"} className='text-gray-300'> Student</Link> / Employee   </h2>
           <div id="line" className='w-full h-[1px] bg-slate-400'></div>
 
 
@@ -146,7 +146,7 @@ export const Register = () => {
                     email: decoded.email,
                     firstname: decoded.given_name,
                     lastname: decoded.family_name,
-                    // You may include other fields like city and contact if available in the decoded JWT
+                    // You may include other fields like organizationname and contact if available in the decoded JWT
                   };
 
                   // Handle user sign-up
@@ -224,14 +224,14 @@ export const Register = () => {
 
               <div className='flex space-x-4'>
                 <div className="w-1/2">
-                  <label htmlFor="city" className="block text-sm font-medium text-gray-700">City:</label>
+                  <label htmlFor="organizationname" className="block text-sm font-medium text-gray-700">Organizationname:</label>
                   <input
                     type="text"
-                    id="city"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
+                    id="organizationname"
+                    value={organizationname}
+                    onChange={(e) => setorganizationname(e.target.value)}
                     className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    placeholder="New York"
+                    placeholder="Company name"
                     required
                   />
                 </div>
@@ -304,4 +304,3 @@ export const Register = () => {
   );
 };
 
-export default Register;

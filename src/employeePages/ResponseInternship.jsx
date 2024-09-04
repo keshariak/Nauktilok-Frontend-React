@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useJob } from '../contexts/jobContext'
+
 import { Link, useAsyncError, useParams } from 'react-router-dom';
 import axios_instance from '../utils/axios';
 import { Enavbar } from '../EmplyeeComponents/Enavbar';
+import { useInternship } from '../contexts/internshipContext';
 
-export const Responses = () => {
+export const ResponsesInternship = () => {
 
+    const [allInternship, setallInternship] = useInternship()
 
-    const [alljob, setAlljob] = useJob();
-    const [filteredJob, setFilteredJob] = useState([]);
+    const [filteredInternship, setFilteredInternship] = useState([]);
     const [appliedStudents , setappliedStudents] =useState([])
     const { id } = useParams();
 
@@ -41,18 +42,18 @@ export const Responses = () => {
     // console.log("allStudents", allStudents);
   
     useEffect(() => {
-      if (alljob.length > 0) {
-        const openJob = alljob.find((job) => job._id === id);
-        setFilteredJob(openJob);
+      if (allInternship.length > 0) {
+        const openInternship = allInternship.find((Internship) => Internship._id === id);
+        setFilteredInternship(openInternship);
       }
-    }, [alljob, id]); // Depend on both alljob and id
+    }, [allInternship, id]); // Depend on both allInternship and id
   
     useEffect(() => {
-      setappliedStudents(filteredJob.students)
-    }, [filteredJob]);
+      setappliedStudents(filteredInternship.students)
+    }, [filteredInternship]);
 
 
-      // Find students who have applied for the job in allStudents
+      // Find students who have applied for the Internship in allStudents
   const appliedStudentDetails = allStudents.filter(student =>
     // console.log(student._id)
     appliedStudents.includes(student._id)
@@ -66,11 +67,11 @@ export const Responses = () => {
     
   
   
-    // Display loading state or message if filteredJob is empty and data is still loading
-    if (filteredJob.length === 0 && alljob.length === 0) {
-      return <p>Loading jobs...</p>;
+    // Display loading state or message if filteredInternship is empty and data is still loading
+    if (filteredInternship.length === 0 && allInternship.length === 0) {
+      return <p>Loading Internships...</p>;
     }
-    console.log( 'appliedStudents', filteredJob)
+    console.log( 'appliedStudents', filteredInternship)
    
 
   return (
@@ -86,55 +87,55 @@ export const Responses = () => {
       <div className='flex md:flex-row flex-col bg-stone-300 '>
           <div id="left" className='md:w-[50%] w-full h-fit bg-white' >
               <div className='w-full h-[12%] pt-2  flex items-center justify-center shadow-lg  '>
-              <h1 className="text-3xl font-bold mb-4 p-auto">Job Details</h1>
+              <h1 className="text-3xl font-bold mb-4 p-auto">Internship Details</h1>
 
               </div>
          
           <div className="w-full  p-6 overflow-y-auto">
-      <h1 className="text-2xl font-bold mb-4">{filteredJob.title}</h1>
+      <h1 className="text-2xl font-bold mb-4">{filteredInternship.profile}</h1>
       <div className="mb-4 flex items-center gap-1">
         <h2 className="md:text-lg text-sm font-semibold">Skills:</h2>
-        <p className='text-sm md:text-base'>{filteredJob.skill}</p>
+        <p className='text-sm md:text-base'>{filteredInternship.skill}</p>
       </div>
       <div className="mb-4 flex  justify-between md:justify-normal md:gap-[30%] ">
-        <div className=' flex items-center gap-1'><h2 className="md:text-lg text-sm font-semibold">Job Type: </h2> <p className='text-sm md:text-base'>{filteredJob.jobtype}</p></div>
-        <div className=' flex items-center gap-1'><h2 className="md:text-lg text-sm font-semibold">Salary: </h2> <p className='text-sm md:text-base'> ${filteredJob.salary}</p></div>
+        <div className=' flex items-center gap-1'><h2 className="md:text-lg text-sm font-semibold">Internship Type: </h2> <p className='text-sm md:text-base'>{filteredInternship.internshiptype}</p></div>
+        <div className=' flex items-center gap-1'><h2 className="md:text-lg text-sm font-semibold">Salary: </h2> <p className='text-sm md:text-base'> ${filteredInternship.stipend? filteredInternship.stipend: "  (Not added) "}</p></div>
       </div>
       
       <div className="mb-4 ">
         <h2 className="md:text-lg text-sm font-semibold">Description:</h2>
         
-        <p className='truncate text-sm md:text-base' >{filteredJob.description}</p>
+        <p className='truncate text-sm md:text-base' >{filteredInternship.description}</p>
       </div>
       <div className="mb-4 flex items-center justify-between md:justify-normal  md:gap-[30%]">
           <div className=' flex items-center gap-1'>
           <h2 className="md:text-lg text-sm font-semibold gap-1">Company:</h2>
-          <p className='text-sm md:text-base'>{filteredJob.from}</p>
+          <p className='text-sm md:text-base'>{filteredInternship.from}</p>
 
           </div>
           <div className=' flex items-center gap-1'>   <h2 className="md:text-lg text-sm font-semibold">Openings:</h2>
-          <p className='text-sm md:text-base'>{filteredJob.openings}</p></div>
+          <p className='text-sm md:text-base'>{filteredInternship.openings}</p></div>
         
       </div>
       <div className="mb-4">
         <h2 className="md:text-lg text-sm font-semibold">Preferences:</h2>
-        <p className='text-sm md:text-base'>{filteredJob.preferences}</p>
+        <p className='text-sm md:text-base'>{filteredInternship.preferences}</p>
       </div>
       
       <div className="mb-4">
         <h2 className="md:text-lg text-sm font-semibold">Perks:</h2>
-        <p className='text-sm md:text-base'>{filteredJob.perks}</p>
+        <p className='text-sm md:text-base'>{filteredInternship.perks}</p>
       </div>
-      {/* {filteredJob.assessments? 
+      {/* {filteredInternship.assessments? 
        <div className="mb-4">
        <h2 className="md:text-lg text-sm font-semibold">Assessments:</h2>
-       <p className='truncate' > {filteredJob.assessments}</p>
+       <p className='truncate' > {filteredInternship.assessments}</p>
      
      </div>
       :( <h1></h1>)} */}
       <div className="mb-4">
        <h2 className="md:text-lg text-sm font-semibold">Assessments:</h2>
-       <p className='' > {filteredJob.assesments}</p>
+       <p className='' > {filteredInternship.assesment}</p>
      
      </div>
      
@@ -146,7 +147,7 @@ export const Responses = () => {
 
               
               {appliedStudentDetails.length > 0 ? (
-                   <h1 className="md:text-3xl font-bold mb-4 p-auto">Only {filteredJob.students.length} Students are Applied</h1>
+                   <h1 className="md:text-3xl font-bold mb-4 p-auto">Only {filteredInternship.students.length} Students are Applied</h1>
               ):(
                   <h1 className="md:text-3xl font-bold mb-4 p-auto">NoOne Applied</h1>
                   

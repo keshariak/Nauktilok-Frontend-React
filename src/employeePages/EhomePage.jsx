@@ -45,6 +45,8 @@ export const EhomePage = () => {
             <Link to={"employee/base"}><div className='w-[90%] h-11 hover:bg-stone-200 hover:scale-[1.03] transform transition duration-300 ease-in-out m-auto rounded-lg mb-2 flex items-center px-4 font-bold text-gray-700'>Home </div> </Link>
             <Link to={"employee/jobs"}><div className='w-[90%] h-11 hover:bg-stone-200 hover:scale-[1.03] transform transition duration-300 ease-in-out m-auto rounded-lg mb-2 flex items-center px-4 font-bold text-gray-700'> Jobs </div></Link>
             <Link to={"employee/internships"}><div className='w-[90%] h-11 hover:bg-stone-200 hover:scale-[1.03] transform transition duration-300 ease-in-out m-auto rounded-lg mb-2 flex items-center px-4 font-bold text-gray-700'>  Internships</div></Link>
+            <Link to={"/employee/aboutus"}><div className='w-[90%] h-11 hover:bg-stone-200 hover:scale-[1.03] transform transition duration-300 ease-in-out m-auto rounded-lg mb-2 flex items-center px-4 font-bold text-gray-700'>  About Us</div></Link>
+            <Link to={"/employee/contactus"}><div className='w-[90%] h-11 hover:bg-stone-200 hover:scale-[1.03] transform transition duration-300 ease-in-out m-auto rounded-lg mb-2 flex items-center px-4 font-bold text-gray-700'>  Contact Us</div></Link>
             <div className='w-[90%] h-11 hover:bg-stone-200 hover:scale-[1.03] transform transition duration-300 ease-in-out m-auto rounded-lg mb-2 flex items-center px-4 font-bold text-gray-700'> Applications </div>
 
             </div>
@@ -58,7 +60,7 @@ export const EhomePage = () => {
             
 
         </div>
-        <div id="right" className='md:w-[75%] w-full h-full bg-slate-200'>
+        <div id="right" className='md:w-[75%] w-full h-full bg-stone-200'>
             <Outlet></Outlet>
 
         </div>

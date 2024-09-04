@@ -5,8 +5,8 @@ import axios_instance from '../utils/axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEmployee } from '../contexts/employeeContexts'
 
-
-
+import logo from '../assets/image.png'
+import menu from '../assets/menu-4-line.png'
 export const Enavbar = () => {
   // const navigate =useNavigate()
     const {employee}= useEmployee()
@@ -54,14 +54,16 @@ export const Enavbar = () => {
   }
 
   return (
-    <div className='w-full h-[10vh] border-b-2 flex items-center justify-center '>
+    <div className='w-full h-[10vh] border-b-2 flex items-center justify-center bg-white '>
 
 
 
       {/* sidebar code here */}
       <div id="left" className=' w-1/2 h-full flex items-center font-bold pl-7'>
 
-      <div onClick={toggleSidebar } className='text-3xl pr-3 md:hidden '> = </div>
+      <div onClick={toggleSidebar } className='text-3xl pr-3 md:hidden '> 
+        <img src={menu} alt="" />
+      </div>
 
       <div ref={sidebarref} className={`md:hidden z-99999 block fixed w-[80%] transition-all duration-500  h-[100vh] top-0  bg-white ${sidbarOpen ? "left-0" : "left-[-100%]"}`}> 
 
@@ -85,9 +87,9 @@ export const Enavbar = () => {
 </div>
 
 
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"employee/home"}>Home</Link></h1></div>
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"employee/internships"}>Internships</Link></h1></div>
-<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"employee/jobs"}>Jobs</Link></h1></div>
+<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"/employee/home/employee/base"}>Home</Link></h1></div>
+<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"/employee/home/employee/internships"}>Internships</Link></h1></div>
+<div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"/employee/home/employee/jobs"}>Jobs</Link></h1></div>
 <div className='w-full h-12  flex items-center pl-3'>
    <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>  <button onClick={logoutHandler} >LogOut</button></h1>
    </div> </div>
@@ -97,12 +99,18 @@ export const Enavbar = () => {
 
 
      
-      <Link to={"/employee/home"}>INTERNSHALA</Link>
+      <Link to={"/employee/home/employee/base"}>
+      <div className='bg-slate-200 md:w-[7.4rem] md:h-10 w-[6rem] h-8 '> 
+      <img className='w-full h-full object-cover' src={logo} alt="NAUKRILOK" />
+
+      </div>
+      
+      </Link>
       </div>
 
       <div id="right" className='w-1/2  h-full flex items-center gap-9 justify-end pr-12'>
-      <Link to={"employee/internships"}  className='ml-3 md:block hidden hover:scale-[1.03] transform transition duration-300 ease-in-out'>Internships</Link>
-      <Link to={"employee/jobs"}  className='ml-3 md:block hidden hover:scale-[1.03] transform transition duration-300 ease-in-out'>Jobs</Link>
+      <Link to={"/employee/home/employee/internships"}  className='ml-3 md:block hidden hover:scale-[1.03] transform transition duration-300 ease-in-out'>Internships</Link>
+      <Link to={"/employee/home/employee/jobs"}  className='ml-3 md:block hidden hover:scale-[1.03] transform transition duration-300 ease-in-out'>Jobs</Link>
 
 
 
@@ -129,7 +137,9 @@ export const Enavbar = () => {
             <h1 className='font-bold'>{employee.firstname} {employee.lastname}</h1>
             <h5>{employee.email} </h5>
           </div>
-          <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"/employee/home"}>Home</Link></h1></div>
+          <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"/employee/home/employee/base"}>Home</Link></h1></div>
+          <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"/employee/aboutus"}>About Us</Link></h1></div>
+          <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'><Link to={"/employee/contactus"}>Contact Us</Link></h1></div>
           <div className='w-full h-12  flex items-center pl-3'> <h1 className='font-semibold text-gray-700 hover:text-[#008BDC]'>My Apllications</h1></div>
           
           <div className='w-full h-12  flex items-center pl-3'>

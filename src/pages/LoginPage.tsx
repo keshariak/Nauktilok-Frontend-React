@@ -3,6 +3,7 @@ import axios_instance from '../utils/axios';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from 'react-router-dom';
+import logo from "../assets/image.png";
 
 
 
@@ -82,7 +83,12 @@ export const LoginPage = () => {
   return (
     <>
     <div className='w-full h-[10vh] flex items-center border-b-2 bg-gray-100 justify-start  '>
-      <div id="left" className='  flex items-center  font-bold pl-9'>INTERNSHALA</div>
+      <div id="left" className='  flex items-center  font-bold pl-9'>
+      <div className='bg-slate-200 md:w-[7.4rem] md:h-10 w-[6rem] h-8 '> 
+      <img className='w-full h-full object-cover' src={logo} alt="NAUKRILOK" />
+
+      </div>
+      </div>
  </div>
 
 

@@ -36,7 +36,8 @@ export const LoginPage = () => {
         
         // window.location.to ="/home"
         console.log(response.data)
-        navigate("/home")
+        // navigate("/home")
+        window.location.href ="/home"
  
        }
         
@@ -47,7 +48,7 @@ export const LoginPage = () => {
           setError('An unexpected error occurred. Please try again.');
         }
        
-      console.log(error.response.data.message)
+      console.log(error.response)
       setError(error.response.data.message);
     }
 

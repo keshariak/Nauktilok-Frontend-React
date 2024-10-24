@@ -96,7 +96,7 @@ export const InternshipPage = (props) => {
           </div>
           <div className="flex items-center">
             <span className="mr-2 text-gray-500">💰</span>
-            <p className="text-gray-700">Stipend: ₹{internshipDetail.stipend.amount}</p>
+            {/* <p className="text-gray-700">Stipend: ₹{internshipDetail.stipend.amount}</p> */}
           </div>
           <div className="flex items-center">
             <span className="mr-2 text-gray-500">📆</span>

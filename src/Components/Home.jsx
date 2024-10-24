@@ -20,6 +20,7 @@ import '../utils/style.css'
 
 // import required modules
 import { EffectCards } from 'swiper/modules';
+import { Link } from 'react-router-dom'
 
 
 

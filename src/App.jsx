@@ -63,7 +63,7 @@ function App() {
   
       <Route  />
 
-      <Route path="/employee/home" element={<ProtectedRouteEmployee element={<EhomePage></EhomePage>} />}>
+      <Route path="/employee/home" element={<ProtectedRouteEmployee element={<EhomePage></EhomePage>} />} >
          <Route path="employee/base" element={<Ehome></Ehome>}/>
          <Route path="employee/jobs" element={<Ejobs></Ejobs>}/>
          <Route path="employee/internships" element={<Einternships></Einternships>}/>

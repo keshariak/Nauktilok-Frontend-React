@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios_instance from '../utils/axios';  
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import logo from '../assets/image.png'
 
@@ -11,6 +11,8 @@ export const EloginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const navigate=useNavigate()
 
   const handleSubmit =async (e) => {
     e.preventDefault();
@@ -30,8 +32,14 @@ export const EloginPage = () => {
       console.log(response)
 
        if(response.data){
+        console.log("hogya login")
         
-        window.location.to ="/employee/home/employee/base"
+        localStorage.setItem("token",response.data.token)
+        
+        window.location.href ="/employee/home/employee/base"
+        // navigate("/employee/home/employee/base")
+
+
 
        }
         
@@ -67,7 +75,9 @@ export const EloginPage = () => {
         // localStorage.setItem("token", response.data.token);
 
         // Redirect to the home page
-        window.location.to = "/employee/home/employee/base";
+        console.log("Google se login hua")
+        window.location.herf = "/employee/home";
+        // window.location.href="google.com"
       }
     } catch (error) {
       console.error('Error logging in with Google:', error);

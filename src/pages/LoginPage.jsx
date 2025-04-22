@@ -24,6 +24,7 @@ export const LoginPage = () => {
       return;
     }
 
+    
     // Perform login logic here
     console.log('Logging in with:', email, password);
     try {
